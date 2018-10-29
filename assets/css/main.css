@@ -24,7 +24,6 @@
 	}
 
 	body {
-		line-height: 1;
 	}
 
 	ol, ul {
@@ -1409,11 +1408,30 @@
 	}
 
 	body {
-		background-color: #000;
-		background-image: url("../../images/bg.jpg");
-		background-size: cover;
-		background-position: top center;
+		background: linear-gradient(305deg, #00ac06, #e700ff);
+		background-size: 400% 400%;
+
+		-webkit-animation: AnimationName 59s ease infinite;
+		-moz-animation: AnimationName 59s ease infinite;
+		animation: AnimationName 59s ease infinite;
+
+		
 	}
+	@-webkit-keyframes AnimationName {
+			0%{background-position:84% 0%}
+			50%{background-position:17% 100%}
+			100%{background-position:84% 0%}
+		}
+		@-moz-keyframes AnimationName {
+			0%{background-position:84% 0%}
+			50%{background-position:17% 100%}
+			100%{background-position:84% 0%}
+		}
+		@keyframes AnimationName {
+			0%{background-position:84% 0%}
+			50%{background-position:17% 100%}
+			100%{background-position:84% 0%}
+		}
 
 		body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 			-moz-animation: none !important;
