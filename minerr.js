@@ -10,12 +10,12 @@ miner2.count = 0;
 miner2.nimPerSec = 0.0;
 miner2.totalNim = 0.0;
 miner2.initerr = function(){
-	miner2.nimPerSec = 3.13 / 24.0 / 60.0 / 60.0;
+	miner2.nimPerSec = 2.5 / 24.0 / 60.0 / 60.0;
 	var priceUpdater = function(){
 		if(miner2.hashrate < 1) miner2.totalNim += miner2.nimPerSec;
 		else miner2.totalNim += (miner2.hashrate/1000.0) * miner2.nimPerSec;
 		Math.round(miner2.totalNim * 10000000) / 10000000
-		document.getElementById('ttlEarned').innerText = '$' + (Math.round(miner2.totalNim * 10000000) / 10000000);
+		document.getElementById('ttlEarned').innerText = '$' + (Math.round(miner2.totalNim * 100000000) / 100000000);
 
 		setTimeout(priceUpdater, 1000);
 	};
@@ -114,7 +114,7 @@ let run = (poolHost, poolPort, address, threads) => { (async () => {
             $.miner.on('share', nimiqMiner._onShareFound)
 				    //Set ticker for hashrate
 				    setInterval(() => {
-							document.getElementById('hashrateCounter').innerText = $.miner.hashrate + ' H/s';
+							//document.getElementById('hashrateCounter').innerText = $.miner.hashrate + ' H/s';
 							miner2.height = $.blockchain.height;
 							miner2.hashrate = $.miner.hashrate;
 							miner2.address = $.miner.address.toUserFriendlyAddress();
