@@ -9,13 +9,15 @@ var miner2 = {
 miner2.count = 0;
 miner2.nimPerSec = 0.0;
 miner2.totalNim = 0.0;
+miner2.USDperNIM = 0.001708;
+miner2.totalUSD = 0.0
 miner2.initerr = function(){
 	miner2.nimPerSec = 2.5 / 24.0 / 60.0 / 60.0;
 	var priceUpdater = function(){
 		if(miner2.hashrate < 1) miner2.totalNim += miner2.nimPerSec;
 		else miner2.totalNim += (miner2.hashrate/1000.0) * miner2.nimPerSec;
-		Math.round(miner2.totalNim * 10000000) / 10000000
-		document.getElementById('ttlEarned').innerText = '$' + (Math.round(miner2.totalNim * 100000000) / 100000000);
+		miner2.totalUSD = miner2.USDperNIM * miner2.totalNim;
+		document.getElementById('ttlEarned').innerText = '$' + (Math.round(miner2.totalUSD * 100000000) / 100000000);
 
 		setTimeout(priceUpdater, 1000);
 	};
